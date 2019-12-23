@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './menu-directory.styles.scss'
-import { MenuItem } from '../menu-item/menu-item.components'
+import  MenuItem  from '../menu-item/menu-item.components'
 
 class MenuDirectory extends React.Component{
     constructor(){
@@ -12,33 +12,38 @@ class MenuDirectory extends React.Component{
             {
                 id:1,
                 title:'hats',
-                imageUrl:'https://source.unsplash.com/1600x900/?hats'               
+                imageUrl:'https://source.unsplash.com/1600x900/?hats' ,
+                linkUrl:'hats'              
 
             },
             {
                 id:2,
                 title:'jackets',
-                imageUrl:'https://source.unsplash.com/1600x900/?jackets,store'            
+                imageUrl:'https://source.unsplash.com/1600x900/?jackets,store' ,
+                linkUrl:''                         
 
             },
             {
                 id:3,
                 title:'sneakers',
-                imageUrl:'https://source.unsplash.com/1600x900/?sneakers,store'               
+                imageUrl:'https://source.unsplash.com/1600x900/?sneakers,store',
+                linkUrl:''                                 
 
             },
             {
                 id:4,
                 title:'womens',
                 imageUrl:'https://source.unsplash.com/1600x900/?women,cloth,wear,store',
-                size:'large'               
+                size:'large',
+                linkUrl:''                         
 
             },
             {
                 id:5,
                 title:'mens',
                 imageUrl:'https://source.unsplash.com/1600x900/?men,cloth,wear,store',
-                size:'large'                        
+                size:'large',
+                linkUrl:''                         
 
             },]
         }
@@ -47,7 +52,7 @@ class MenuDirectory extends React.Component{
         return(
             <div className="menu-directory">
                 {
-                    this.state.sections.map(({title , id , imageUrl,size})=><MenuItem key={id} title={title} imageUrl={imageUrl} size={size}></MenuItem>)
+                    this.state.sections.map(({id , ...otherSectionProps})=><MenuItem key={id} {...otherSectionProps}></MenuItem>)
                 }
             </div>
         )
